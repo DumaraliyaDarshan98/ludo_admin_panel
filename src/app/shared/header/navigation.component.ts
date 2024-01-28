@@ -1,4 +1,6 @@
+import { LocalStorageService } from 'src/app/services/local-storage/local-storage.service';
 import { Component, AfterViewInit, EventEmitter, Output } from '@angular/core';
+import { Router } from '@angular/router';
 import { NgbDropdownModule, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 declare var $: any;
@@ -14,7 +16,7 @@ export class NavigationComponent implements AfterViewInit {
 
   public showSearch = false;
 
-  constructor(private modalService: NgbModal) {
+  constructor(private modalService: NgbModal, private router : Router, private localStorageService : LocalStorageService) {
   }
 
   // This is for Notifications
@@ -111,4 +113,9 @@ export class NavigationComponent implements AfterViewInit {
   }]
 
   ngAfterViewInit() { }
+
+  logout() {
+    this.localStorageService.clearStorage();
+    this.router.navigateByUrl('/login');
+  }
 }

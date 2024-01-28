@@ -11,37 +11,40 @@
                             <th class="text-dark font-medium fs-4">Full Name</th>
                             <th class="text-dark font-medium fs-4">Mobile Number</th>
                             <th class="text-dark font-medium fs-4">Email</th>
+                            <th class="text-dark font-medium fs-4">Amount</th>
                             <th class="text-dark font-medium fs-4">Status</th>
                             <th class="text-dark font-medium fs-4">Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor='let tr of trow; index as i'>
+                        <tr *ngFor='let user of userList; index as i'>
                             <td>
                                 {{ i + 1 }}
                             </td>
                             <td>
-                                {{tr.fname}}
+                                {{user?.full_name || '-'}}
                             </td>
                             <td>
-                                {{tr.lname}}
+                                {{user?.mobile_no || '-'}}
                             </td>
                             <td>
-                                {{tr.uname}}
+                                {{user?.email || '-'}}
                             </td>
                             <td>
-                              <span *ngIf="i == 0" class="mb-1 me-2 badge font-medium bg-light-success text-success">Active</span>
-                              <span *ngIf="i == 1 || i == 2" class="mb-1 me-2 badge font-medium bg-light-danger text-danger">InActive</span>
-                              <!-- <span *ngIf="i == 2" class="mb-1 me-2 badge font-medium bg-light-warning text-warning">Warning</span> -->
-                          </td>
+                              Rs. {{ user?.amount || '0'}}
+                            </td>
+                            <td>
+                              <span *ngIf="user?.status == 1" class="mb-1 me-2 badge font-medium bg-light-success text-success">Active</span>
+                              <span *ngIf="user?.status == 0" class="mb-1 me-2 badge font-medium bg-light-danger text-danger">InActive</span>
+                            </td>
                             <td>
                               <div class="d-inline-block" ngbDropdown>
-                                <button class="btn btn-secondary d-flex align-items-center" id="dropdown1" ngbDropdownToggle>
+                                <button class="btn btn-secondary d-flex align-items-center" id="dropdown1" ngbDropdownToggle >
                                   Status Change
                                 </button>
                                 <div ngbDropdownMenu aria-labelledby="dropdown1">
-                                  <button class="dropdown-item">Active</button>
-                                  <button class="dropdown-item">InActive</button>
+                                  <button class="dropdown-item" (click)="statusChange(user?.id, 1)">Active</button>
+                                  <button class="dropdown-item" (click)="statusChange(user?.id, 0)">InActive</button>
                                 </div>
                               </div>
                           </td>

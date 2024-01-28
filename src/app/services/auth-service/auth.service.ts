@@ -29,7 +29,7 @@ export class AuthService {
 
   login(payload: any): Observable<any> {
     return this.httpClient
-      .get<any>(this.baseUrl + AuthEndPoint.LOGIN_USER, payload);
+      .post<any>(this.baseUrl + AuthEndPoint.LOGIN_USER, payload);
   }
 
   logout(): void {
@@ -39,12 +39,12 @@ export class AuthService {
 
   verifyEmail(payload: any): Observable<any> {
     return this.httpClient
-      .get<any>(this.baseUrl + AuthEndPoint.VERIFY_EMAIL, payload);
+      .post<any>(this.baseUrl + AuthEndPoint.VERIFY_EMAIL, payload);
   }
 
   forgotPassword(payload: any): Observable<any> {
     return this.httpClient
-      .get<any>(this.baseUrl + AuthEndPoint.FORGOT_PASSWORD, payload);
+      .post<any>(this.baseUrl + AuthEndPoint.FORGOT_PASSWORD, payload);
   }
 
 }

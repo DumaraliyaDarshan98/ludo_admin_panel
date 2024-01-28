@@ -13,9 +13,9 @@ export class LocalStorageService {
 
   // Function to use for the set login user details in localStorage
   setLogger(details: any): void {
-    const loginData = JSON.stringify(details);
+    const loginData = JSON.stringify(details?.data);
     localStorage.setItem('loginUser', loginData);
-    localStorage.setItem('loginToken', details?.api_token);
+    localStorage.setItem('loginToken', details?.token);
   }
 
   // Set the updated loginUser details
@@ -25,9 +25,12 @@ export class LocalStorageService {
   }
 
   // Function to use for the get login user details from the localStorage
-  getLogger(): void {
+  getLogger(): any {
     const loginUser: any = localStorage.getItem('loginUser');
-    return JSON.parse(loginUser);
+    if(loginUser !== 'undefined') {
+      return JSON.parse(loginUser);
+    }
+    return null;
   }
 
   // Function to use for the get login user token from the localStorage

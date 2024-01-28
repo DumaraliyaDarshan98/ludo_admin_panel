@@ -6,7 +6,7 @@ import {
 } from '@angular/common';
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { HttpClientModule, HttpClient, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { Routes, RouterModule } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FullComponent } from './layouts/full/full.component';
@@ -17,6 +17,7 @@ import { AppComponent } from './app.component';
 import { SpinnerComponent } from './shared/spinner.component';
 import { ToastrModule } from 'ngx-toastr';
 import { AuthModule } from './auth/auth.module';
+import { APIInterceptor } from './Interceptor/ApiInterceptor';
 
 @NgModule({
   declarations: [
@@ -47,6 +48,9 @@ import { AuthModule } from './auth/auth.module';
       provide: LocationStrategy,
       useClass: PathLocationStrategy
     },
+    {
+      provide: HTTP_INTERCEPTORS, useClass: APIInterceptor, multi: true
+    }
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent]

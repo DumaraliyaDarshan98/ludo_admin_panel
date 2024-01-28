@@ -9,7 +9,7 @@ import { NotificationService } from 'src/app/services/notification/notification.
   templateUrl: './forgot-password.component.html',
   styleUrls: ['./forgot-password.component.scss']
 })
-export class ForgotPasswordComponent  implements OnInit  {
+export class ForgotPasswordComponent implements OnInit {
 
   defaultForgotPasswordForm = {
     userName: new FormControl("", [Validators.required]),
@@ -23,21 +23,28 @@ export class ForgotPasswordComponent  implements OnInit  {
     private router: Router,
     private authService: AuthService,
     private notificationService: NotificationService
-  ) { }
+  ) {
+    const state: any = this.router?.getCurrentNavigation()?.extras.state;
+    console.log('state', state)
+    if (!state?.userName) {
+      this.router.navigateByUrl('/verify-user')
+    }
+    this.forgotPasswordForm.get('userName')?.setValue(state?.userName)
+  }
 
   ngOnInit() {
   }
 
-  forgotPassword(){
+  forgotPassword() {
     this.forgotPasswordForm.markAllAsTouched();
     if (this.forgotPasswordForm.valid) {
       // this.forgotPassword();
       this.showLoader = true;
-      this.authService.verifyEmail(this.forgotPasswordForm.value).subscribe((response) => {
+      this.authService.forgotPassword(this.forgotPasswordForm.value).subscribe((response) => {
         if (response?.status === SUCCESS) {
           this.notificationService.showSuccess(response?.message);
           this.showLoader = false;
-          this.router.navigate(['/login'], { state: { userName: this.forgotPasswordForm.controls.userName.value } });
+          this.router.navigate(['/login']);
         } else {
           this.notificationService.showError(response?.message);
           this.showLoader = false;

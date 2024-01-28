@@ -14,7 +14,7 @@ import { NotificationService } from 'src/app/services/notification/notification.
 export class VerifyUserComponent implements OnInit {
 
   defaultLoginForm = {
-    userName: new FormControl("", [Validators.required, Validators.pattern('^[^\\s@]+@[^\\s@]+\\.[^\\s@]{2,}$')]),
+    userName: new FormControl("", [Validators.required]),
   };
 
   verifyEmailForm = new FormGroup(this.defaultLoginForm, []);
@@ -44,7 +44,7 @@ export class VerifyUserComponent implements OnInit {
         if (response?.status == SUCCESS) {
           this.localStorageService.setLogger(response?.data);
           this.showLoader = false;
-          this.router.navigateByUrl('/home');
+          this.router.navigateByUrl('/forgot-password', { state: { userName: this.verifyEmailForm.controls.userName.value } });
           this.notificationService.showSuccess(response?.message || 'User login successfully');
         } else {
           this.showLoader = false;

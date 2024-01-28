@@ -47,9 +47,10 @@ export class LoginComponent extends BaseLogin implements OnInit {
       this.showLoader = true;
       this.authService.login(this.loginForm.value).subscribe((response) => {
         if (response?.status == SUCCESS) {
-          this.localStorageService.setLogger(response?.data);
+
+          this.localStorageService.setLogger(response?.payload);
           this.showLoader = false;
-          this.router.navigateByUrl('/home');
+          this.router.navigateByUrl('/dashboard');
           this.notificationService.showSuccess(response?.message || 'User login successfully');
         } else {
           this.showLoader = false;
