@@ -20,6 +20,15 @@ export const Approutes: Routes = [
       {
         path: 'component',
         loadChildren: () => import('./component/component.module').then(m => m.ComponentsModule)
+      },
+    ]
+  },
+  {
+    path: '',
+    children: [
+      {
+        path: 'auth',
+        loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)
       }
     ]
   },
