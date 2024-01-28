@@ -34,6 +34,7 @@ export class UserPaymentComponent implements OnInit{
     this.generalService.getUserWalletList().subscribe((response) => {
       if (response?.status == SUCCESS) {
         this.walletHistory = response?.payload?.data;
+        this.walletHistory = this.walletHistory.reverse();
         console.log('this.userList', this.walletHistory)
       } else {
         this.notificationService.showError('Error');

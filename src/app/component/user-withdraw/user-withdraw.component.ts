@@ -34,6 +34,7 @@ export class UserWithdrawComponent implements OnInit {
     this.generalService.getUserWithdrawList().subscribe((response) => {
       if (response?.status == SUCCESS) {
         this.withdrawHistory = response?.payload?.data;
+        this.withdrawHistory = this.withdrawHistory.reverse();
         console.log('this.userList', this.withdrawHistory)
       } else {
         this.notificationService.showError('Error');

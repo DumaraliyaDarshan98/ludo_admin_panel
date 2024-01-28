@@ -82,6 +82,14 @@ export const ROUTES: RouteInfo[] = [
     extralink: false,
     submenu: []
   },
+  {
+    path: '/component/contact-us',
+    title: 'Contact Us',
+    icon: 'bi bi-layout-split',
+    class: '',
+    extralink: false,
+    submenu: []
+  },
   // {
   //   path: '/about',
   //   title: 'About',

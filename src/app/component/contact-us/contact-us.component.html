@@ -1,0 +1,74 @@
+<div class="row">
+  <div class="col-12">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Add Edit Contact Us</h4>
+            <div class="row table-responsive">
+              <div class="col-md-12 col-lg-6 mt-4">
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Email</label>
+                  <input type="email" [formControl]="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                </div>
+              </div>
+              <div class="col-md-12 col-lg-6 mt-4">
+                <div class="form-group">
+                  <label for="intagram">Instagram</label>
+                  <input type="text" [formControl]="intagram" class="form-control" id="intagram" placeholder="Enter Instagram account link">
+                </div>
+              </div>
+              <div class="col-md-12 col-lg-6 mt-4">
+                <div class="form-group">
+                  <label for="telegram">Telegram</label>
+                  <input type="text" [formControl]="telegram" class="form-control" id="telegram" placeholder="Enter Telegram account link">
+                </div>
+              </div>
+              <div class="col-md-12 col-lg-6 mt-4">
+                <div class="form-group">
+                  <label for="whatsapp">WhatsApp</label>
+                  <input type="text" [formControl]="whatsapp" class="form-control" id="whatsapp" placeholder="Enter WhatsApp number">
+                </div>
+              </div>
+              <div class="col-12 mt-2 text-end">
+                <button type="button" class="btn btn-primary" (click)="addEditContactDetails()">Save</button>
+              </div>
+            </div>
+        </div>
+    </div>
+  </div>
+  <div class="col-12">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Contact Us Details</h4>
+            <div class="table-responsive">
+                <table class="table table-hover align-middle text-nowrap table-bordered">
+                    <tbody>
+                        <tr>
+                          <td>Email : </td>
+                          <td>{{ contactUsDetails?.email }}</td>
+                        </tr>
+                        <tr>
+                          <td>Instagram : </td>
+                          <td>{{ contactUsDetails?.intagram }}</td>
+                        </tr>
+                        <tr>
+                          <td>Telegram : </td>
+                          <td>{{ contactUsDetails?.telegram }}</td>
+                        </tr>
+                        <tr>
+                          <td>WhatsApp : </td>
+                          <td>{{ contactUsDetails?.whatsapp }}</td>
+                        </tr>
+                        <tr>
+                          <td>Status : </td>
+                          <td>
+                            <span *ngIf="contactUsDetails?.status == 1" class="mb-1 me-2 badge font-medium bg-light-success text-success">Active</span>
+                            <span *ngIf="contactUsDetails?.status == 0" class="mb-1 me-2 badge font-medium bg-light-danger text-danger">InActive</span>
+                          </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+  </div>
+</div>

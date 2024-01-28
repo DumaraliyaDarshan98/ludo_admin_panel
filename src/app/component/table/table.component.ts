@@ -38,6 +38,7 @@ export class TableComponent implements OnInit {
     this.generalService.getUserList().subscribe((response) => {
       if (response?.status == SUCCESS) {
         this.userList = response?.payload?.data;
+        this.userList = this.userList.reverse();
         console.log('this.userList', this.userList)
       } else {
         this.notificationService.showError('Error');
