@@ -83,6 +83,14 @@ export const ROUTES: RouteInfo[] = [
     submenu: []
   },
   {
+    path: '/component/game-history',
+    title: 'Game History',
+    icon: 'bi bi-layout-split',
+    class: '',
+    extralink: false,
+    submenu: []
+  },
+  {
     path: '/component/contact-us',
     title: 'Contact Us',
     icon: 'bi bi-layout-split',

@@ -13,7 +13,8 @@ export enum APIEndPoint {
   CHANGE_WITHDRAW_STATUS = "/admin/withdraw-action",
   CHANGE_USER_STATUS = "/admin/user-status-change",
   ADD_EDIT_CONTACT_US = "/admin/add-edit-contact-us",
-  GET_CONTACT_US = "/admin/get-contact-us"
+  GET_CONTACT_US = "/admin/get-contact-us",
+  GET_DASHBOARD_DETAILS = "/admin/get-dashboard-details"
 }
 
 @Injectable({
@@ -77,5 +78,11 @@ export class GeneralService {
   getContactUsDetails(): Observable<any> {
     return this.httpClient
       .get<any>(this.baseUrl + APIEndPoint.GET_CONTACT_US);
+  }
+
+  // get user wallet list
+  getDashboardData(): Observable<any> {
+    return this.httpClient
+      .get<any>(this.baseUrl + APIEndPoint.GET_DASHBOARD_DETAILS);
   }
 }

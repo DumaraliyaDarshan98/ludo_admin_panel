@@ -6,6 +6,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ComponentsRoutes } from './component.routing';
 import { TableComponent } from "./table/table.component";
 import { ContactUsComponent } from './contact-us/contact-us.component';
+import { GameHistoryComponent } from './game-history/game-history.component';
 
 @NgModule({
   imports: [
@@ -17,7 +18,8 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
     TableComponent
   ],
   declarations: [
-    ContactUsComponent
+    ContactUsComponent,
+    GameHistoryComponent
   ],
 })
 export class ComponentsModule { }

@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="col-md-6 col-lg-3" *ngFor='let topcard of topcards'>
+    <!-- <div class="col-md-6 col-lg-3" *ngFor='let topcard of topcards'>
         <div class="card">
             <div class="card-body">
                 <div class="d-flex align-items-center">
@@ -13,5 +13,108 @@
                 </div>
             </div>
         </div>
+    </div> -->
+
+    <!-- Number of user register -->
+    <div class="col-md-6 col-lg-4">
+      <div class="card">
+          <div class="card-body">
+              <div class="d-flex align-items-center">
+                  <div class="btn btn-lg rounded-circle round round-lg fs-6 d-flex align-items-center justify-content-center bg-light-success text-success">
+                      <i class="bi bi-basket3"></i>
+                  </div>
+                  <div class="ms-3">
+                      <h3 class="mb-0 font-weight-bold">{{ dashboardData?.totalUser }}</h3>
+                      <small class="text-muted fs-3">Register User</small>
+                  </div>
+              </div>
+          </div>
+      </div>
     </div>
+
+    <!-- Number of Played game -->
+    <div class="col-md-6 col-lg-4">
+      <div class="card">
+          <div class="card-body">
+              <div class="d-flex align-items-center">
+                  <div class="btn btn-lg rounded-circle round round-lg fs-6 d-flex align-items-center justify-content-center bg-light-success text-success">
+                      <i class="bi bi-basket3"></i>
+                  </div>
+                  <div class="ms-3">
+                      <h3 class="mb-0 font-weight-bold">{{ dashboardData?.totalPlayGame }}</h3>
+                      <small class="text-muted fs-3">Played game</small>
+                  </div>
+              </div>
+          </div>
+      </div>
+    </div>
+
+    <!-- Commission of admin -->
+    <div class="col-md-6 col-lg-4">
+      <div class="card">
+          <div class="card-body">
+              <div class="d-flex align-items-center">
+                  <div class="btn btn-lg rounded-circle round round-lg fs-6 d-flex align-items-center justify-content-center bg-light-success text-success">
+                      <i class="bi bi-wallet"></i>
+                  </div>
+                  <div class="ms-3">
+                      <h3 class="mb-0 font-weight-bold">{{ dashboardData?.adminCommission }}%</h3>
+                      <small class="text-muted fs-3">Commission In Game</small>
+                  </div>
+              </div>
+          </div>
+      </div>
+    </div>
+
+    <!-- Total User wallet balance -->
+    <div class="col-md-6 col-lg-4">
+      <div class="card">
+          <div class="card-body">
+              <div class="d-flex align-items-center">
+                  <div class="btn btn-lg rounded-circle round round-lg fs-6 d-flex align-items-center justify-content-center bg-light-danger text-danger">
+                      <i class="bi bi-coin"></i>
+                  </div>
+                  <div class="ms-3">
+                      <h3 class="mb-0 font-weight-bold">Rs. {{ dashboardData?.totalWallet }}</h3>
+                      <small class="text-muted fs-3">Arrive Payment</small>
+                  </div>
+              </div>
+          </div>
+      </div>
+    </div>
+
+    <!-- Total Withdraw payment -->
+    <div class="col-md-6 col-lg-4">
+      <div class="card">
+          <div class="card-body">
+              <div class="d-flex align-items-center">
+                  <div class="btn btn-lg rounded-circle round round-lg fs-6 d-flex align-items-center justify-content-center bg-light-danger text-danger">
+                      <i class="bi bi-coin"></i>
+                  </div>
+                  <div class="ms-3">
+                      <h3 class="mb-0 font-weight-bold">Rs. {{ dashboardData?.totalWithdraw }}</h3>
+                      <small class="text-muted fs-3">Withdraw Payment</small>
+                  </div>
+              </div>
+          </div>
+      </div>
+    </div>
+
+    <!-- Total get commission -->
+    <div class="col-md-6 col-lg-4">
+      <div class="card">
+          <div class="card-body">
+              <div class="d-flex align-items-center">
+                  <div class="btn btn-lg rounded-circle round round-lg fs-6 d-flex align-items-center justify-content-center bg-light-danger text-danger">
+                      <i class="bi bi-coin"></i>
+                  </div>
+                  <div class="ms-3">
+                      <h3 class="mb-0 font-weight-bold">Rs. {{ dashboardData?.totalAdminCommission }}</h3>
+                      <small class="text-muted fs-3">Total commission</small>
+                  </div>
+              </div>
+          </div>
+      </div>
+    </div>
+
 </div>
