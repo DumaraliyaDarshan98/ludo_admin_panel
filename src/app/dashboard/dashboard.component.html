@@ -1,33 +1,32 @@
-<app-top-cards></app-top-cards>
-<!-- ============================================================== -->
-<!-- Sales chart -->
-<!-- ============================================================== -->
-<!-- <div class="row">
-  <div class="col-lg-7">
-    <app-sales-ratio></app-sales-ratio>
+<div class="row">
+  <div class="col-12 m-2">
+    <app-top-cards></app-top-cards>
   </div>
-  <div class="col-lg-5">
-    <app-feeds></app-feeds>
+  <div class="col-12 m-2">
+    <div class="card">
+      <div class="card-body bg-primary text-white p-2">
+        Commission
+      </div>
+      <div class="card-body row">
+        <div class="col-md-6">
+            <h4>Current Commission</h4>
+            <span class="text-danger">
+              <h2 style="color: red; font-weight: bold;">
+                {{ commissionDetails?.commission || '0' }}%
+              </h2>
+            </span>
+        </div>
+          <div class="col-md-6">
+            <div class="form-group m-2">
+              <label for="intagram">Commission</label>
+              <input type="number" class="form-control" id="intagram" placeholder="Enter Commission" [formControl]="commission">
+            </div>
+            <div class="text-end m-2">
+              <button type="button" class="btn btn-primary" (click)="addEditCommission()">Update</button>
+            </div>
+          </div>
+      </div>
+    </div>
   </div>
-</div> -->
-<!-- ============================================================== -->
-<!-- Sales chart -->
-<!-- ============================================================== -->
-<!-- ============================================================== -->
-<!-- Table -->
-<!-- ============================================================== -->
-<!-- <div class="row">
-  <div class="col-lg-12">
-    <app-top-selling></app-top-selling>
-  </div>
-</div> -->
-<!-- ============================================================== -->
-<!-- Table -->
-<!-- ============================================================== -->
-<!-- ============================================================== -->
-<!-- cards -->
-<!-- ============================================================== -->
-<!-- <app-blog-cards></app-blog-cards> -->
-<!-- ============================================================== -->
-<!-- cards -->
-<!-- ============================================================== -->
+</div>
+

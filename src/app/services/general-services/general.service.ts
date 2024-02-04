@@ -14,7 +14,9 @@ export enum APIEndPoint {
   CHANGE_USER_STATUS = "/admin/user-status-change",
   ADD_EDIT_CONTACT_US = "/admin/add-edit-contact-us",
   GET_CONTACT_US = "/admin/get-contact-us",
-  GET_DASHBOARD_DETAILS = "/admin/get-dashboard-details"
+  GET_DASHBOARD_DETAILS = "/admin/get-dashboard-details",
+  GET_COMMISSION_DETAILS = "/admin/get-commission",
+  ADD_EDIT_COMMISSION_DETAILS = "/admin/add-edit-commission"
 }
 
 @Injectable({
@@ -84,5 +86,17 @@ export class GeneralService {
   getDashboardData(): Observable<any> {
     return this.httpClient
       .get<any>(this.baseUrl + APIEndPoint.GET_DASHBOARD_DETAILS);
+  }
+
+  // add edit commission details
+  addEditCommission(payload: any): Observable<any> {
+    return this.httpClient
+      .post<any>(this.baseUrl + APIEndPoint.ADD_EDIT_COMMISSION_DETAILS, payload);
+  }
+
+  // get admin commission details
+  getCommissionDetails(): Observable<any> {
+    return this.httpClient
+      .get<any>(this.baseUrl + APIEndPoint.GET_COMMISSION_DETAILS);
   }
 }

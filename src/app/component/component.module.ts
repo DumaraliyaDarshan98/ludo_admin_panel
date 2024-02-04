@@ -19,7 +19,7 @@ import { GameHistoryComponent } from './game-history/game-history.component';
   ],
   declarations: [
     ContactUsComponent,
-    GameHistoryComponent
+    GameHistoryComponent,
   ],
 })
 export class ComponentsModule { }
