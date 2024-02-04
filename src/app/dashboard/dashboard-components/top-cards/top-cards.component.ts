@@ -27,7 +27,6 @@ export class TopCardsComponent implements OnInit {
     this.generalService.getDashboardData().subscribe((response) => {
       if (response?.status == SUCCESS) {
         this.dashboardData = response?.payload?.data;
-        console.log('this.dashboardData ', this.dashboardData);
       } else {
         console.log('something went wrong', response);
       }

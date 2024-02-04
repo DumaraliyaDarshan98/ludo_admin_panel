@@ -35,7 +35,7 @@ import { APIInterceptor } from './Interceptor/ApiInterceptor';
     NgbModule,
     ToastrModule.forRoot({
       timeOut: 3000,
-      positionClass: 'toast-bottom-left',
+      positionClass: 'toast-bottom-right',
       preventDuplicates: false,
     }),
     RouterModule.forRoot(Approutes, { useHash: false }),

@@ -16,7 +16,8 @@ export enum APIEndPoint {
   GET_CONTACT_US = "/admin/get-contact-us",
   GET_DASHBOARD_DETAILS = "/admin/get-dashboard-details",
   GET_COMMISSION_DETAILS = "/admin/get-commission",
-  ADD_EDIT_COMMISSION_DETAILS = "/admin/add-edit-commission"
+  ADD_EDIT_COMMISSION_DETAILS = "/admin/add-edit-commission",
+  GET_GAME_HISTORY = "/game/get-admin-game-history",
 }
 
 @Injectable({
@@ -98,5 +99,11 @@ export class GeneralService {
   getCommissionDetails(): Observable<any> {
     return this.httpClient
       .get<any>(this.baseUrl + APIEndPoint.GET_COMMISSION_DETAILS);
+  }
+
+  // get game history for the admin
+  getGameHistory(): Observable<any> {
+    return this.httpClient
+      .get<any>(this.baseUrl + APIEndPoint.GET_GAME_HISTORY);
   }
 }

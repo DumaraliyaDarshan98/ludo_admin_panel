@@ -26,7 +26,7 @@ export class DashboardComponent implements AfterViewInit, OnInit {
 
   ngAfterViewInit() { }
 
-  // get contactDetails
+  // get admin commission details
   getAdminCommission() {
     this.generalService.getCommissionDetails().subscribe((response) => {
       if (response?.status == SUCCESS) {
@@ -38,7 +38,7 @@ export class DashboardComponent implements AfterViewInit, OnInit {
     })
   }
 
-  // add edit contact details
+  // add edit admin commission details
   addEditCommission() {
     if(!this.commission.value) {
       return this.notificationService.showError('PLease Enter Commission');

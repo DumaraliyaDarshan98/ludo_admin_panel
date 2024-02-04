@@ -1,0 +1,17 @@
+thead tr {
+  background-color: rgb(177, 213, 245);
+}
+
+tbody tr:nth-child(odd) {
+  background-color: whitesmoke;
+}
+tbody tr:nth-child(even) {
+  background-color: white;
+}
+
+tbody tr, thead th {
+  text-align: center;
+}
+td {
+  padding : 5px !important ;
+}

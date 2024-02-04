@@ -75,7 +75,7 @@
                       <i class="bi bi-coin"></i>
                   </div>
                   <div class="ms-3">
-                      <h3 class="mb-0 font-weight-bold">Rs. {{ dashboardData?.totalWallet }}</h3>
+                      <h3 class="mb-0 font-weight-bold text-danger">Rs. {{ dashboardData?.totalWallet }}</h3>
                       <small class="text-muted fs-3">Arrive Payment</small>
                   </div>
               </div>
@@ -92,7 +92,7 @@
                       <i class="bi bi-coin"></i>
                   </div>
                   <div class="ms-3">
-                      <h3 class="mb-0 font-weight-bold">Rs. {{ dashboardData?.totalWithdraw }}</h3>
+                      <h3 class="mb-0 font-weight-bold text-danger">Rs. {{ dashboardData?.totalWithdraw }}</h3>
                       <small class="text-muted fs-3">Withdraw Payment</small>
                   </div>
               </div>
@@ -109,7 +109,7 @@
                       <i class="bi bi-coin"></i>
                   </div>
                   <div class="ms-3">
-                      <h3 class="mb-0 font-weight-bold">Rs. {{ dashboardData?.totalAdminCommission }}</h3>
+                      <h3 class="mb-0 font-weight-bold text-danger">Rs. {{ dashboardData?.totalAdminCommission.toFixed(2) }}</h3>
                       <small class="text-muted fs-3">Total commission</small>
                   </div>
               </div>
