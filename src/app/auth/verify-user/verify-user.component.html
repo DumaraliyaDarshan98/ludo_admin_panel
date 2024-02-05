@@ -1,25 +1,27 @@
-<section class="h-100 login">
+<section class="login" style="height: 100vh;overflow: auto;">
     <div class="h-100 container">
         <div class="h-100 row  d-flex align-items-center justify-content-center ">
 
-            <div class="col-xl-5 col-lg-6 col-md-10 col-sm-12 flex-column mx-auto">
+            <div class="col-xl-5 col-lg-5 col-md-10 col-sm-12 flex-column mx-auto">
                 <form class="needs-validation" [formGroup]="verifyEmailForm">
                     <div class="w-100 login-outer p-4 mb-3">
                         <h3 class="text-center semibold txt-white pb-4">Verify User</h3>
 
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control fs-14" placeholder="Email" formControlName="userName"
+                        <div class="d-flex flex-column input-group mb-3">
+                            <input type="text" class="w-100 form-control fs-14" placeholder="Email" formControlName="userName"
                                 aria-label="Mobile Number" aria-describedby="basic-addon1" required>
-                            <span class="text-danger" *ngIf="
-                                verifyEmailForm.controls.userName?.touched &&
-                                verifyEmailForm.controls.userName?.errors?.['required']">
-                                Please enter userName
-                            </span>
-                            <span class="text-danger" *ngIf="
-                                verifyEmailForm.controls.userName?.touched &&
-                                verifyEmailForm.controls.userName?.errors?.['pattern']">
-                                Please enter valid userName
-                            </span>
+                                <div class="d-block">
+                                <span class="text-danger" *ngIf="
+                                    verifyEmailForm.controls.userName?.touched &&
+                                    verifyEmailForm.controls.userName?.errors?.['required']">
+                                    Please enter userName
+                                </span>
+                                <span class="text-danger" *ngIf="
+                                    verifyEmailForm.controls.userName?.touched &&
+                                    verifyEmailForm.controls.userName?.errors?.['pattern']">
+                                    Please enter valid userName
+                                </span>
+                            </div>
                         </div>
                         <button type="button" (click)="verifyEmail()"
                             class="w-100 fs-16 txt-white btn btn-danger py-2 h-3 mb-3">Verify User</button>

@@ -1,49 +1,55 @@
-<section class="h-100 login">
+<section class="login" style="height: 100vh;overflow: auto;">
     <div class="h-100 container">
         <div class="h-100 row  d-flex align-items-center justify-content-center ">
-
-            <div class="col-xl-5 col-lg-6 col-md-10 col-sm-12 flex-column mx-auto">
+            <div class="col-xl-5 col-lg-5 col-md-10 col-sm-12 flex-column mx-auto">
                 <!-- <h1 class="w-100 txt-white bold d-block text-center mb-4">Welcome to LUDO</h1> -->
                 <form class="needs-validation" [formGroup]="loginForm">
                     <div class="w-100 login-outer p-4 mb-3">
                         <h3 class="text-center semibold txt-white pb-4">Sign in</h3>
-
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control fs-14" placeholder="Email or Mobile No."
+                        <div class="d-flex flex-column input-group mb-3">
+                            <input type="text" class="w-100 form-control fs-14" placeholder="Email or Mobile No."
                                 formControlName="userName" aria-label="Mobile Number" aria-describedby="basic-addon1"
                                 required>
-                            <br>
-                            <span class="text-danger" *ngIf="
-                                loginForm.controls.userName?.touched &&
-                                loginForm.controls.userName?.errors?.['required']">
-                                Please enter userName
-                            </span>
-                            <span class="text-danger" *ngIf="
-                                loginForm.controls.userName?.touched &&
-                                loginForm.controls.userName?.errors?.['pattern']">
-                                Please enter valid userName
-                            </span>
+                            <div>
+                                <span class="fs-12 text-danger" *ngIf="
+                                    loginForm.controls.userName?.touched &&
+                                    loginForm.controls.userName?.errors?.['required']">
+                                    Please enter userName
+                                </span>
+                                <span class="fs-12 text-danger" *ngIf="
+                                    loginForm.controls.userName?.touched &&
+                                    loginForm.controls.userName?.errors?.['pattern']">
+                                    Please enter valid userName
+                                </span>
+                            </div>
                         </div>
                         <div class="input-group mb-3">
-                            <input type="password" class="form-control fs-14" placeholder="Password"
-                                formControlName="password" aria-label="Password" aria-describedby="basic-addon1"
-                                required="">
-                            <span class="showicon" *ngIf="!showPassword" (click)="showHidePass()"><i
-                                    class="bi bi-eye-fill"></i></span>
-                            <span class="showicon" *ngIf="showPassword" (click)="showHidePass()"><i
-                                    class="bi bi-eye-slash-fill"></i></span>
-                            <span class="text-danger" *ngIf="
-                                loginForm.controls.password?.touched &&
-                                loginForm.controls.password?.errors?.['required']
-                            ">
-                                Please enter valid password
-                            </span>
-                            <span class="text-danger" *ngIf="
-                                loginForm.controls.password?.touched &&
-                                loginForm.controls.password?.errors?.['pattern']
-                            ">
-                                Please enter valid password
-                            </span>
+                            <div class="w-100 d-flex align-items-center">
+                                <input type="password" class="form-control fs-14" placeholder="Password"
+                                    formControlName="password" aria-label="Password" aria-describedby="basic-addon1"
+                                    required="">
+                                <div style="position: absolute;
+                                right: 1rem">
+                                        <span class="showicon" *ngIf="!showPassword" (click)="showHidePass()"><i
+                                                class="bi bi-eye-fill"></i></span>
+                                        <span class="showicon" *ngIf="showPassword" (click)="showHidePass()"><i
+                                                class="bi bi-eye-slash-fill"></i></span>
+                                </div>
+                            </div>
+                              <div>
+                                <span class="fs-12 text-danger" *ngIf="
+                                    loginForm.controls.password?.touched &&
+                                    loginForm.controls.password?.errors?.['required']
+                                ">
+                                    Please enter valid password
+                                </span>
+                                <span class="fs-12 text-danger" *ngIf="
+                                    loginForm.controls.password?.touched &&
+                                    loginForm.controls.password?.errors?.['pattern']
+                                ">
+                                    Please enter valid password
+                                </span>
+                        </div>
                         </div>
                         <p class="txt-white pb-4" style="float: right;"><a [routerLink]="['/verify-user']"> Forgot Password
                                 ?</a></p>
