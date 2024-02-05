@@ -118,4 +118,8 @@ export class NavigationComponent implements AfterViewInit {
     this.localStorageService.clearStorage();
     this.router.navigateByUrl('/login');
   }
+
+  goToProfile() {
+    this.router.navigateByUrl('/component/profile');
+  }
 }
