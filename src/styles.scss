@@ -1,2 +1,81 @@
 /* You can add global styles to this file, and also import other style files */
 @import 'ngx-toastr/toastr';
+
+ 
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700;900&display=swap');
+ 
+
+  html{
+    --nav-width:18rem;
+  }
+body{
+  // font-family: 'Berkshire Swash', serif;
+  // font-family: 'Playfair Display', serif;
+  font-family: 'Noto Sans', sans-serif;
+}
+
+.txt-white{color:#fff;}
+
+.bg-white{background-color: #fff;}
+
+*input{height: 50px;}
+*:focus{outline: none;box-shadow:none !important;border-color:transparent}
+
+.h-3{height: 3rem;}
+
+.bold{font-weight: bolder;}
+.semibold{font-weight: 700;}
+
+.fs-10{font-size: 10px;}
+.fs-12{font-size: 12px;}
+.fs-14{font-size: 14px;}
+.fs-16{font-size: 16px;}
+.fs-18{font-size: 18px;}
+.fs-20{font-size: 20px;}
+.fs-22{font-size: 22px;}
+
+.c-green{color: #0db25b;}
+.bb-1{border-bottom: 1px solid #e7e6e6;}
+.b-1{border: 1px solid #e7e6e6;}
+
+
+.bg-gray{background-color: #ebebeb;}
+.bg-transparent{background-color: transparent;}
+.bg-fb{background-color: #fbfbfb;}
+.bg-g-primary{
+  background-image: linear-gradient(43deg, #4158d017 0%, #c850c024 46%, #ffcc702b 100%);
+}
+//scroll
+::-webkit-scrollbar {width: 4px; height: 5px;position: absolute;right:0;}
+::-webkit-scrollbar-track {background: var(--sdark); border-radius: 6px;}
+::-webkit-scrollbar-thumb {background: var(--text-light); border-radius: 6px;}
+::-webkit-scrollbar-thumb:hover {background: var(--text); }
+
+.scroll-bar-wrap {position: relative;}
+.scroll-box {overflow-y: scroll;}
+.scroll-box::-webkit-scrollbar {width: 4px; }
+.scroll-box::-webkit-scrollbar,
+.scroll-box::-webkit-scrollbar-thumb {overflow:visible;border-radius: 4px;}
+.scroll-box::-webkit-scrollbar-thumb {background: #42526e59 !important; opacity: 0.5;}
+.scroll-bar-wrap:hover .cover-bar{opacity: 0;transition: all .5s; -webkit-transition: all .5s;}
+
+.cursor-pointer{cursor: pointer;}
+
+.list-none{list-style: none;}
+
+.opacity-8{opacity: 0.8;}
+
+
+.modal-dialog{
+  display: flex;
+  align-items: center;
+  min-height: calc(100% - var(--bs-modal-margin) * 2);
+}
+/* Importing Bootstrap SCSS file. */
+// @import 'bootstrap/scss/bootstrap';
+
+// other
+.mdc-text-field--filled:not(.mdc-text-field--disabled){background-color: transparent !important;}
+
+
+
