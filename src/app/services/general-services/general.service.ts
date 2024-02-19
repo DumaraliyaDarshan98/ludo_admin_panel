@@ -17,6 +17,8 @@ export enum APIEndPoint {
   GET_DASHBOARD_DETAILS = "/admin/get-dashboard-details",
   GET_COMMISSION_DETAILS = "/admin/get-commission",
   ADD_EDIT_COMMISSION_DETAILS = "/admin/add-edit-commission",
+  REFER_GET_COMMISSION_DETAILS = "/admin/refer-get-commission",
+  REFER_ADD_EDIT_COMMISSION_DETAILS = "/admin/refer-add-edit-commission",
   GET_GAME_HISTORY = "/game/get-admin-game-history",
 }
 
@@ -99,6 +101,18 @@ export class GeneralService {
   getCommissionDetails(): Observable<any> {
     return this.httpClient
       .get<any>(this.baseUrl + APIEndPoint.GET_COMMISSION_DETAILS);
+  }
+
+  // add edit commission details
+  addEditReferCommission(payload: any): Observable<any> {
+    return this.httpClient
+      .post<any>(this.baseUrl + APIEndPoint.REFER_ADD_EDIT_COMMISSION_DETAILS, payload);
+  }
+
+  // get admin commission details
+  getReferCommissionDetails(): Observable<any> {
+    return this.httpClient
+      .get<any>(this.baseUrl + APIEndPoint.REFER_GET_COMMISSION_DETAILS);
   }
 
   // get game history for the admin

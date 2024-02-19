@@ -10,18 +10,21 @@ import { FormControl } from '@angular/forms';
 })
 export class DashboardComponent implements AfterViewInit, OnInit {
   subtitle: string;
-  commissionDetails : any;
+  commissionDetails: any;
   commission: FormControl = new FormControl('');
+  referCommissionDetails: any;
+  refer_commission: FormControl = new FormControl('');
 
   constructor(
-    private generalService : GeneralService,
-    private notificationService : NotificationService,
+    private generalService: GeneralService,
+    private notificationService: NotificationService,
   ) {
     this.subtitle = 'This is some text within a card block.';
   }
 
   ngOnInit(): void {
     this.getAdminCommission();
+    this.getReferCommission();
   }
 
   ngAfterViewInit() { }
@@ -40,12 +43,12 @@ export class DashboardComponent implements AfterViewInit, OnInit {
 
   // add edit admin commission details
   addEditCommission() {
-    if(!this.commission.value) {
+    if (!this.commission.value) {
       return this.notificationService.showError('PLease Enter Commission');
     }
 
     const payload: any = {
-      commission : this.commission.value
+      commission: this.commission.value
     }
 
     if (this.commissionDetails?.id) {
@@ -55,6 +58,43 @@ export class DashboardComponent implements AfterViewInit, OnInit {
     this.generalService.addEditCommission(payload).subscribe((response) => {
       if (response?.status == SUCCESS) {
         this.getAdminCommission();
+      } else {
+        this.notificationService.showError('Error');
+      }
+    }, (error) => {
+      this.notificationService.showError('Not updated contact us');
+    });
+  }
+
+  // get admin commission details
+  getReferCommission() {
+    this.generalService.getReferCommissionDetails().subscribe((response) => {
+      if (response?.status == SUCCESS) {
+        this.referCommissionDetails = response?.payload?.data;
+        this.refer_commission.setValue(this.referCommissionDetails?.commission || '');
+      }
+    }, (error) => {
+      this.notificationService.showError('Error')
+    })
+  }
+
+  // add edit admin commission details
+  addEditReferCommission() {
+    if (!this.refer_commission.value) {
+      return this.notificationService.showError('PLease Enter Commission');
+    }
+
+    const payload: any = {
+      commission: this.refer_commission.value
+    }
+
+    if (this.referCommissionDetails?.id) {
+      payload['id'] = this.referCommissionDetails?.id
+    }
+
+    this.generalService.addEditReferCommission(payload).subscribe((response) => {
+      if (response?.status == SUCCESS) {
+        this.getReferCommission();
       } else {
         this.notificationService.showError('Error');
       }
