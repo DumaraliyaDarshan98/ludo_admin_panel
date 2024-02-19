@@ -28,5 +28,31 @@
       </div>
     </div>
   </div>
+  <div class="col-12 m-2">
+    <div class="card">
+      <div class="card-body bg-primary text-white p-2">
+        Refer Commission
+      </div>
+      <div class="card-body row">
+        <div class="col-md-6">
+            <h4>Current Commission</h4>
+            <span class="text-danger">
+              <h2 style="color: red; font-weight: bold;">
+                Rs. {{ referCommissionDetails?.commission || '0' }}
+              </h2>
+            </span>
+        </div>
+          <div class="col-md-6">
+            <div class="form-group m-2">
+              <label for="intagram">Refer Commission</label>
+              <input type="number" class="form-control" id="intagram" placeholder="Enter Commission" [formControl]="refer_commission">
+            </div>
+            <div class="text-end m-2">
+              <button type="button" class="btn btn-primary" (click)="addEditReferCommission()">Update</button>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
 </div>
 
