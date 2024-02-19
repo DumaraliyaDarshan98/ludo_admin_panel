@@ -1,0 +1,19 @@
+.login{
+    background: url('./../../../assets/images/login-bg.png') no-repeat;
+    height: 100vh;
+    background-size: 100%;
+}
+.login-outer{
+background: rgba(255, 255, 255, 0.22);
+border-radius: 8px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(9.8px);
+-webkit-backdrop-filter: blur(9.8px);
+}
+
+
+@media (max-width:1025px){
+    .login{
+                background-size: cover;
+    }
+}
