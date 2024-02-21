@@ -46,9 +46,11 @@
                               {{game?.created_on | date: 'dd/MM/YYYY'}}
                             </td>
                             <td>
-                              <span *ngIf="game?.is_running == 1" class="mb-1 me-2 badge font-medium bg-light-info text-success">Running</span>
-                              <span *ngIf="game?.is_running == 2" class="mb-1 me-2 badge font-medium bg-light-success text-danger">Completed</span>
-                              <span *ngIf="game?.is_running == 0" class="mb-1 me-2 badge font-medium bg-light-warning text-warning">Waiting</span>
+                              <span *ngIf="game?.status == 1" class="mb-1 me-2 badge font-medium bg-light-info text-danger">Created</span>
+                              <span *ngIf="game?.status == 2" class="mb-1 me-2 badge font-medium bg-light-success text-warning">Requested</span>
+                              <span *ngIf="game?.status == 3" class="mb-1 me-2 badge font-medium bg-light-warning text-success">Running</span>
+                              <span *ngIf="game?.status == 4" class="mb-1 me-2 badge font-medium bg-light-warning text-success">Completed</span>
+                              <span *ngIf="game?.status == 5" class="mb-1 me-2 badge font-medium bg-light-warning text-danger">Cancel</span>
                            </td>
                             <td>
                               <div class="d-inline-block">

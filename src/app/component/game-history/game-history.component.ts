@@ -38,6 +38,7 @@ export class GameHistoryComponent implements OnInit {
   }
 
   showDetails(battleId: any) {
-    this.router.navigateByUrl(`/component/game-detail/${battleId}`)
+    // this.router.navigateByUrl(`/component/game-detail/${battleId}`)
+    this.router.navigate(['/component/game-detail', battleId]);
   }
 }

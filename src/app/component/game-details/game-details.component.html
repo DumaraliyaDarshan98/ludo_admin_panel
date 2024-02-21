@@ -1,1 +1,190 @@
-<p>game-details works!</p>
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Game Detail</h4>
+                    <div class="table-responsive">
+                        <table class="table table-hover align-middle text-nowrap table-bordered">
+                            <tbody>
+                                <tr>
+                                    <td>Game Code : </td>
+                                    <td>{{ gameDetails?.game_code }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Game Amount : </td>
+                                    <td>{{ gameDetails?.amount }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Winner Amount : </td>
+                                    <td>{{ gameDetails?.winner_amount }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Admin Commission : </td>
+                                    <td>{{ gameDetails?.owner_commision }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Game Created By : </td>
+                                    <td>{{ gameDetails?.gameOwner?.full_name }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Game Created By Mobile No.: </td>
+                                    <td>{{ gameDetails?.gameOwner?.mobile_no }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Game Created By Email : </td>
+                                    <td>{{ gameDetails?.gameOwner?.email }}</td>
+                                </tr>
+                                <tr>
+                                  <td>Admin Verify : </td>
+                                  <td>
+                                    <span *ngIf="gameDetails?.gameUserResults[0]?.admin_verify == 0" class="mb-1 me-2 badge font-medium bg-light-info text-danger">No</span>
+                                    <span *ngIf="gameDetails?.gameUserResults[0]?.admin_verify == 1" class="mb-1 me-2 badge font-medium bg-light-info text-success">Yes</span>
+                                    <!-- {{ gameDetails?.gameUserResults[0]?.admin_verify }} -->
+                                  </td>
+                              </tr>
+                                <tr>
+                                    <td>Status : </td>
+                                    <td>
+                                      <span *ngIf="gameDetails?.status == 1" class="mb-1 me-2 badge font-medium bg-light-info text-danger">Created</span>
+                                      <span *ngIf="gameDetails?.status == 2" class="mb-1 me-2 badge font-medium bg-light-success text-warning">Requested</span>
+                                      <span *ngIf="gameDetails?.status == 3" class="mb-1 me-2 badge font-medium bg-light-warning text-success">Running</span>
+                                      <span *ngIf="gameDetails?.status == 4" class="mb-1 me-2 badge font-medium bg-light-warning text-success">Completed</span>
+                                      <span *ngIf="gameDetails?.status == 5" class="mb-1 me-2 badge font-medium bg-light-warning text-danger">Cancel</span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Player 1 Detail</h4>
+                                <div class="table-responsive">
+                                    <table class="table table-hover align-middle text-nowrap table-bordered">
+                                        <tbody>
+                                            <tr>
+                                                <td>Name: </td>
+                                                <td>{{ gameDetails?.playerOne?.full_name }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Email: </td>
+                                                <td>{{ gameDetails?.playerOne?.email }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Mobile No.: </td>
+                                                <td>{{ gameDetails?.playerOne?.mobile_no }}</td>
+                                            </tr>
+                                            <tr>
+                                              <td>
+                                                Status :
+                                              </td>
+                                              <td>
+                                                <span
+                                                    *ngIf="gameDetails?.gameUserResults?.length > 0 && gameDetails?.gameUserResults[0]?.winner_user_id == gameDetails?.playerOne?.id"
+                                                    class="mb-1 me-2 badge font-medium bg-light-success text-success text-center">You
+                                                    won the game !</span>
+                                                <span
+                                                    *ngIf="gameDetails?.gameUserResults?.length > 0 && gameDetails?.gameUserResults[0]?.loose_user_id == gameDetails?.playerOne?.id"
+                                                    class="mb-1 me-2 badge font-medium bg-light-danger text-danger text-center">You
+                                                    loose the game !</span>
+                                                <span
+                                                    *ngIf="gameDetails?.gameUserResults?.length > 0 && gameDetails?.gameUserResults[0]?.cancel_user_id == gameDetails?.playerOne?.id"
+                                                    class="mb-1 me-2 badge font-medium bg-light-danger text-danger text-center">Cancel
+                                                    Game !</span>
+
+                                                <span
+                                                    *ngIf="gameDetails?.gameUserResults[0]?.cancel_user_id !== gameDetails?.playerOne?.id && gameDetails?.gameUserResults[0]?.loose_user_id !== gameDetails?.playerOne?.id && gameDetails?.gameUserResults[0]?.winner_user_id !== gameDetails?.playerOne?.id"
+                                                    class="mb-1 me-2 badge font-medium bg-light-danger text-danger text-center">Pending</span>
+                                                  </td>
+                                            </tr>
+                                            <tr *ngIf="gameDetails?.gameUserResults?.length > 0 && gameDetails?.gameUserResults[0]?.winner_user_id == gameDetails?.playerOne?.id">
+                                              <td colspan="2" style="text-align: center;">
+                                                <span
+                                                    *ngIf="gameDetails?.gameUserResults[0]?.winner_user_id == gameDetails?.playerOne?.id">
+                                                    <img src="https://mega-ludo.info/uploads/1708544731903-bg-pizza.jpg"
+                                                        alt="" height="200px" width="200px">
+                                                </span>
+                                              </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Player 2 Detail</h4>
+                                <div class="table-responsive">
+                                    <table class="table table-hover align-middle text-nowrap table-bordered">
+                                        <tbody>
+                                            <tr>
+                                                <td>Name: </td>
+                                                <td>{{ gameDetails?.playerTwo?.full_name }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Email: </td>
+                                                <td>{{ gameDetails?.playerTwo?.email }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Mobile No.: </td>
+                                                <td>{{ gameDetails?.playerTwo?.mobile_no }}</td>
+                                            </tr>
+
+                                            <tr>
+                                              <td>
+                                                Status :
+                                              </td>
+                                              <td>
+                                                <span
+                                                    *ngIf="gameDetails?.gameUserResults?.length > 0 && gameDetails?.gameUserResults[0]?.winner_user_id == gameDetails?.playerTwo?.id"
+                                                    class="mb-1 me-2 badge font-medium bg-light-success text-success text-center">You
+                                                    won the game !</span>
+                                                <span
+                                                    *ngIf="gameDetails?.gameUserResults?.length > 0 && gameDetails?.gameUserResults[0]?.loose_user_id == gameDetails?.playerTwo?.id"
+                                                    class="mb-1 me-2 badge font-medium bg-light-danger text-danger text-center">You
+                                                    loose the game !</span>
+                                                <span
+                                                    *ngIf="gameDetails?.gameUserResults?.length > 0 && gameDetails?.gameUserResults[0]?.cancel_user_id == gameDetails?.playerTwo?.id"
+                                                    class="mb-1 me-2 badge font-medium bg-light-danger text-danger text-center">Cancel
+                                                    Game !</span>
+
+                                                <span
+                                                    *ngIf="gameDetails?.gameUserResults[0]?.cancel_user_id !== gameDetails?.playerTwo?.id && gameDetails?.gameUserResults[0]?.loose_user_id !== gameDetails?.playerTwo?.id && gameDetails?.gameUserResults[0]?.winner_user_id !== gameDetails?.playerTwo?.id"
+                                                    class="mb-1 me-2 badge font-medium bg-light-danger text-danger text-center">Pending</span>
+                                                  </td>
+                                            </tr>
+                                            <tr *ngIf="gameDetails?.gameUserResults?.length > 0 && gameDetails?.gameUserResults[0]?.winner_user_id == gameDetails?.playerTwo?.id">
+                                              <td colspan="2" style="text-align: center;">
+                                                <span
+                                                    *ngIf="gameDetails?.gameUserResults[0]?.winner_user_id == gameDetails?.playerTwo?.id">
+                                                    <img src="https://mega-ludo.info/uploads/1708544731903-bg-pizza.jpg"
+                                                        alt="" height="200px" width="200px">
+                                                </span>
+                                              </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+          <div class="col-12" style="text-align: end;">
+            <button class="btn btn-secondary d-flex align-items-center"*ngIf="gameDetails?.gameUserResults?.length > 0" type="button">Verify</button>
+          </div>
+        </div>
+    </div>
