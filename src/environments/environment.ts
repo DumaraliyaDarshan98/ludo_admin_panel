@@ -6,7 +6,7 @@ export const environment = {
   production: false,
 
   baseUrl: "http://localhost:4100",
-  // baseUrl : 'http://51.20.5.31:4100'
+  // baseUrl : 'http://mega-ludo.info'
   // baseUrl : 'https://mega-ludo.info',
 
 };

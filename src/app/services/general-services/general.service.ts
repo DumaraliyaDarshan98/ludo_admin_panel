@@ -20,6 +20,7 @@ export enum APIEndPoint {
   REFER_GET_COMMISSION_DETAILS = "/admin/refer-get-commission",
   REFER_ADD_EDIT_COMMISSION_DETAILS = "/admin/refer-add-edit-commission",
   GET_GAME_HISTORY = "/game/get-admin-game-history",
+  GET_GAME_HISTORY_DETAILS = "/game/get-game-table/GAMETABLEID",
 }
 
 @Injectable({
@@ -119,5 +120,12 @@ export class GeneralService {
   getGameHistory(): Observable<any> {
     return this.httpClient
       .get<any>(this.baseUrl + APIEndPoint.GET_GAME_HISTORY);
+  }
+
+  // get game history for the admin
+  getGameHistoryDetails(gameTableId: any): Observable<any> {
+    const apiUrl = APIEndPoint.GET_GAME_HISTORY_DETAILS.replace('GAMETABLEID', gameTableId)
+    return this.httpClient
+      .get<any>(this.baseUrl + apiUrl);
   }
 }

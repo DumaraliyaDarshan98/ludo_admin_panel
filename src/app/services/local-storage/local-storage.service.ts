@@ -20,7 +20,7 @@ export class LocalStorageService {
 
   // Set the updated loginUser details
   updateUserDetails(details: any): void {
-    const loginData = JSON.stringify(details);
+    const loginData = JSON.stringify(details?.data);
     localStorage.setItem('loginUser', loginData);
   }
 

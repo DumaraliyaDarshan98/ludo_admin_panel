@@ -10,6 +10,7 @@ export enum AuthEndPoint {
   LOGIN_USER = '/admin/auth/login',
   VERIFY_EMAIL = '/admin/auth/verify',
   FORGOT_PASSWORD = '/admin/auth/forgot-password',
+  UPDATE_PROFILE = "/admin/admin-update",
 }
 
 @Injectable({
@@ -47,4 +48,9 @@ export class AuthService {
       .post<any>(this.baseUrl + AuthEndPoint.FORGOT_PASSWORD, payload);
   }
 
+  // update admin profile
+  updateProfile(payload: any): Observable<any> {
+    return this.httpClient
+      .post<any>(this.baseUrl + AuthEndPoint.UPDATE_PROFILE, payload);
+  }
 }
