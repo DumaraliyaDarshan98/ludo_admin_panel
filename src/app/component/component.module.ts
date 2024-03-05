@@ -9,6 +9,8 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
 import { GameHistoryComponent } from './game-history/game-history.component';
 import { AdminProfileComponent } from './admin-profile/admin-profile.component';
 import { GameDetailsComponent } from './game-details/game-details.component';
+import { NotificationComponent } from './notification/notification.component';
+import { NotificationAddeditComponent } from './notification-addedit/notification-addedit.component';
 
 @NgModule({
   imports: [
@@ -24,6 +26,8 @@ import { GameDetailsComponent } from './game-details/game-details.component';
     GameHistoryComponent,
     AdminProfileComponent,
     GameDetailsComponent,
+    NotificationComponent,
+    NotificationAddeditComponent,
   ],
 })
 export class ComponentsModule { }

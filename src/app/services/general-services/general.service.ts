@@ -19,8 +19,12 @@ export enum APIEndPoint {
   ADD_EDIT_COMMISSION_DETAILS = "/admin/add-edit-commission",
   REFER_GET_COMMISSION_DETAILS = "/admin/refer-get-commission",
   REFER_ADD_EDIT_COMMISSION_DETAILS = "/admin/refer-add-edit-commission",
-  GET_GAME_HISTORY = "/game/get-admin-game-history",
+  // GET_GAME_HISTORY = "/game/get-admin-game-history",
+  GET_GAME_HISTORY = "/game/admin-game-history",
   GET_GAME_HISTORY_DETAILS = "/game/get-game-table/GAMETABLEID",
+  NOTIFICATION_LIST = "/notification/list",
+  ADD_EDIT_NOTIFICATION_LIST = "/notification/add-edit",
+  DELETE_NOTIFICATION_LIST = "/notification/delete"
 }
 
 @Injectable({
@@ -127,5 +131,24 @@ export class GeneralService {
     const apiUrl = APIEndPoint.GET_GAME_HISTORY_DETAILS.replace('GAMETABLEID', gameTableId)
     return this.httpClient
       .get<any>(this.baseUrl + apiUrl);
+  }
+
+  // get notification List
+  getNotificationList(): Observable<any> {
+    return this.httpClient
+      .get<any>(this.baseUrl + APIEndPoint.NOTIFICATION_LIST);
+  }
+
+  // add edit notification
+  addEditNotification(payload: any): Observable<any> {
+    return this.httpClient
+      .post<any>(this.baseUrl + APIEndPoint.ADD_EDIT_NOTIFICATION_LIST, payload);
+  }
+
+  // delete notification
+  deleteNotification(id: any): Observable<any> {
+    const url = APIEndPoint.DELETE_NOTIFICATION_LIST + '/' + String(id);
+    return this.httpClient
+      .delete<any>(this.baseUrl + url);
   }
 }

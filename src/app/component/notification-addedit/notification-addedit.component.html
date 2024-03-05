@@ -1,0 +1,43 @@
+<div class="col-12">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Add Edit Notification</h4>
+            <form class="needs-validation" [formGroup]="notificationForm" (ngSubmit)="submitForm()">
+                <div class="row table-responsive">
+                    <div class="col-md-12 col-lg-6 mt-4">
+                        <div class="form-group">
+                            <label for="exampletitle">Title</label>
+                            <input type="text" class="form-control" formControlName="title" id="title" required
+                                placeholder="Enter Title">
+                        </div>
+                        <span class="text-danger"
+                            *ngIf="notificationForm.controls.title.touched && notificationForm.controls.title?.errors?.['required']">
+                            Please enter project name
+                        </span>
+                    </div>
+                    <div class="col-md-12 col-lg-6 mt-4">
+                        <div class="form-group">
+                            <label for="intagram">Image</label>
+                            <input type="file" name="files[]" id="fileInput" (change)="addFiles($event)"
+                                accept=".jpeg, .jpg, .png">
+                        </div>
+                    </div>
+                    <div class="col-md-12 col-lg-12 mt-4">
+                        <div class="form-group">
+                            <label for="telegram">Message</label>
+                            <input type="text" class="form-control" placeholder="Enter Message"
+                                formControlName="message" id="message" required>
+                        </div>
+                        <span class="text-danger"
+                            *ngIf="notificationForm.controls.message.touched && notificationForm.controls.message?.errors?.['required']">
+                            Please enter message.
+                        </span>
+                    </div>
+                    <div class="col-12 mt-2 text-end">
+                        <button type="submit" class="btn btn-primary">Save</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

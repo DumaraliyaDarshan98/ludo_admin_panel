@@ -6,6 +6,8 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
 import { GameHistoryComponent } from './game-history/game-history.component';
 import { AdminProfileComponent } from './admin-profile/admin-profile.component';
 import { GameDetailsComponent } from './game-details/game-details.component';
+import { NotificationComponent } from './notification/notification.component';
+import { NotificationAddeditComponent } from './notification-addedit/notification-addedit.component';
 
 
 export const ComponentsRoutes: Routes = [
@@ -16,27 +18,35 @@ export const ComponentsRoutes: Routes = [
 				path: 'user-list',
 				component: TableComponent
 			},
-      {
+			{
 				path: 'user-payment',
 				component: UserPaymentComponent
 			},
-      {
+			{
 				path: 'user-withdraw',
 				component: UserWithdrawComponent
 			},
-      {
+			{
 				path: 'contact-us',
 				component: ContactUsComponent
 			},
-      {
+			{
 				path: 'game-history',
 				component: GameHistoryComponent
 			},
-      {
+			{
+				path: 'notification',
+				component: NotificationComponent
+			},
+			{
 				path: 'profile',
 				component: AdminProfileComponent
 			},
-      {
+			{
+				path: 'notification-addedit',
+				component: NotificationAddeditComponent
+			},
+			{
 				path: 'game-detail/:id',
 				component: GameDetailsComponent
 			},

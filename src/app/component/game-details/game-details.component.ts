@@ -40,6 +40,8 @@ export class GameDetailsComponent implements OnInit {
       if(response?.status == SUCCESS) {
         console.log('response', response)
         this.gameDetails = response?.payload?.data;
+        console.log(this.gameDetails?.status);
+        console.log(this.gameDetails?.gamePlayer[1]?.playerOne?.email)
       } else {
         this.notificationService.showError('Something went wrong');
       }

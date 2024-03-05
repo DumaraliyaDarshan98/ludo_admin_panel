@@ -98,6 +98,14 @@ export const ROUTES: RouteInfo[] = [
     extralink: false,
     submenu: []
   },
+  {
+    path: '/component/notification',
+    title: 'Notification',
+    icon: 'bi bi-layout-split',
+    class: '',
+    extralink: false,
+    submenu: []
+  },
   // {
   //   path: '/about',
   //   title: 'About',
