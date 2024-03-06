@@ -8,6 +8,8 @@ import { AdminProfileComponent } from './admin-profile/admin-profile.component';
 import { GameDetailsComponent } from './game-details/game-details.component';
 import { NotificationComponent } from './notification/notification.component';
 import { NotificationAddeditComponent } from './notification-addedit/notification-addedit.component';
+import { PageNotificationComponent } from './page-notification/page-notification.component';
+import { AddEditPageNotificationComponent } from './add-edit-page-notification/add-edit-page-notification.component';
 
 
 export const ComponentsRoutes: Routes = [
@@ -45,6 +47,14 @@ export const ComponentsRoutes: Routes = [
 			{
 				path: 'notification-addedit',
 				component: NotificationAddeditComponent
+			},
+      {
+				path: 'page-notification',
+				component: PageNotificationComponent
+			},
+      {
+				path: 'add-edit-page-notification',
+				component: AddEditPageNotificationComponent
 			},
 			{
 				path: 'game-detail/:id',

@@ -1,0 +1,49 @@
+<div class="row">
+  <div class="col-12">
+    <div class="card">
+        <div class="card-body" style="height: 100vh;">
+              <div class="d-flex justify-content-between m-1">
+                  <span>
+                      <h4 class="card-title">Notification List</h4>
+                  </span>
+                  <span>
+                      <button class="btn btn-primary" (click)="add()"> ADD Notification </button>
+                  </span>
+              </div>
+            <div class="table-responsive" style="height: 100vh;">
+                <table class="table table-hover align-middle text-nowrap table-bordered">
+                    <thead>
+                        <tr>
+                          <th class="text-dark font-medium fs-4">Title</th>
+                          <th class="text-dark font-medium fs-4">Message</th>
+                          <th class="text-dark font-medium fs-4">Created</th>
+                          <th class="text-dark font-medium fs-4">Page</th>
+                          <th class="text-dark font-medium fs-4">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor='let item of notificationList; index as i'>
+                          <td>
+                              {{ item?.title }}
+                          </td>
+                          <td>
+                              {{item?.message}}
+                          </td>
+                          <td>
+                              {{item?.created_on}}
+                          </td>
+                          <td>
+                            {{item?.page}}
+                          </td>
+                          <td>
+                              <button class="btn btn-secondary m-1" (click)="edit(item)">Edit</button>
+                              <button class="btn btn-secondary m-1" (click)="deleteNoti(item?.id)">Delete</button>
+                          </td>
+                      </tr>
+                  </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+  </div>
+</div>

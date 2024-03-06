@@ -5,19 +5,19 @@ import { GeneralService } from 'src/app/services/general-services/general.servic
 import { NotificationService } from 'src/app/services/notification/notification.service';
 
 @Component({
-  selector: 'app-notification',
-  templateUrl: './notification.component.html',
-  styleUrls: ['./notification.component.scss']
+  selector: 'app-page-notification',
+  templateUrl: './page-notification.component.html',
+  styleUrls: ['./page-notification.component.scss']
 })
-export class NotificationComponent {
+export class PageNotificationComponent {
 
 
-  public notificaionList: any = [];
+  public notificationList: any = [];
 
   constructor(
     private generalService: GeneralService,
     private notificationService: NotificationService,
-    private router : Router
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -25,9 +25,9 @@ export class NotificationComponent {
   }
 
   getNotificationList() {
-    this.generalService.getNotificationList().subscribe((response) => {
+    this.generalService.getPageNotificationList().subscribe((response) => {
       if (response?.status == SUCCESS) {
-        this.notificaionList = response?.payload?.data;
+        this.notificationList = response?.payload?.data;
       } else {
         this.notificationService.showError('Error');
       }
@@ -36,13 +36,18 @@ export class NotificationComponent {
     })
   }
 
-  edit(data:any) {
-    localStorage.setItem('notificationData', JSON.stringify(data));
-    this.router.navigateByUrl('/component/notification-addedit')
+  edit(data: any) {
+    localStorage.setItem('pageNotificationData', JSON.stringify(data));
+    this.router.navigateByUrl('/component/add-edit-page-notification')
+  }
+
+  add() {
+    localStorage.removeItem('pageNotificationData');
+    this.router.navigateByUrl('/component/add-edit-page-notification')
   }
 
   deleteNoti(id:any) {
-    this.generalService.deleteNotification(id).subscribe((response) => {
+    this.generalService.deletePageNotification(id).subscribe((response) => {
       if(response?.status == SUCCESS) {
         this.getNotificationList()
       }

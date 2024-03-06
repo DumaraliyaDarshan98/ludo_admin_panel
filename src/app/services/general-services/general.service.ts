@@ -24,7 +24,10 @@ export enum APIEndPoint {
   GET_GAME_HISTORY_DETAILS = "/game/get-game-table/GAMETABLEID",
   NOTIFICATION_LIST = "/notification/list",
   ADD_EDIT_NOTIFICATION_LIST = "/notification/add-edit",
-  DELETE_NOTIFICATION_LIST = "/notification/delete"
+  DELETE_NOTIFICATION_LIST = "/notification/delete",
+  PAGE_NOTIFICATION_LIST = "/page-notification/list",
+  PAGE_ADD_EDIT_NOTIFICATION_LIST = "/page-notification/add-edit",
+  PAGE_DELETE_NOTIFICATION_LIST = "/page-notification/delete"
 }
 
 @Injectable({
@@ -148,6 +151,25 @@ export class GeneralService {
   // delete notification
   deleteNotification(id: any): Observable<any> {
     const url = APIEndPoint.DELETE_NOTIFICATION_LIST + '/' + String(id);
+    return this.httpClient
+      .delete<any>(this.baseUrl + url);
+  }
+
+  // get notification List
+  getPageNotificationList(): Observable<any> {
+    return this.httpClient
+      .get<any>(this.baseUrl + APIEndPoint.PAGE_NOTIFICATION_LIST);
+  }
+
+  // add edit notification
+  addEditPageNotification(payload: any): Observable<any> {
+    return this.httpClient
+      .post<any>(this.baseUrl + APIEndPoint.PAGE_ADD_EDIT_NOTIFICATION_LIST, payload);
+  }
+
+  // delete notification
+  deletePageNotification(id: any): Observable<any> {
+    const url = APIEndPoint.PAGE_DELETE_NOTIFICATION_LIST + '/' + String(id);
     return this.httpClient
       .delete<any>(this.baseUrl + url);
   }
