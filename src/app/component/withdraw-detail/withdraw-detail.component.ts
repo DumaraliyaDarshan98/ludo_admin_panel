@@ -12,6 +12,7 @@ import { NotificationService } from 'src/app/services/notification/notification.
 export class WithdrawDetailComponent implements OnInit {
   withdrawId: any;
   withdrawDetails: any;
+  UserDetails: any;
 
   constructor(
     private route: ActivatedRoute,
@@ -25,7 +26,7 @@ export class WithdrawDetailComponent implements OnInit {
       this.withdrawId = params.get('id'); // Get the id parameter
       console.log(' this.withdrawId', this.withdrawId)
     });
-    if(!this.withdrawId) {
+    if (!this.withdrawId) {
       this.router.navigateByUrl('/component/user-withdraw');
     }
   }
@@ -38,6 +39,7 @@ export class WithdrawDetailComponent implements OnInit {
     this.generalService.getWithDrawDetails(this.withdrawId).subscribe((response) => {
       if (response?.status == SUCCESS) {
         this.withdrawDetails = response?.payload?.data;
+        this.UserDetails = response?.payload?.data?.userDetail;
         console.log(this.withdrawDetails)
       } else {
         return this.notificationService.showError('Something Went Wrong Please After Some Time');

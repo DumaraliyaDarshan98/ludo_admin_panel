@@ -1,8 +1,12 @@
-<p>withdraw-detail works!</p>
-<span *ngIf="withdrawDetails?.status == 1" class="mb-1 me-2 badge font-medium bg-light-success text-success">Verify</span>
-                            <span *ngIf="withdrawDetails?.status == 2" class="mb-1 me-2 badge font-medium bg-light-danger text-danger">Decline</span>
-                            <span *ngIf="withdrawDetails?.status == 0" class="mb-1 me-2 badge font-medium bg-light-warning text-warning">Pending</span>
-                            <span *ngIf="withdrawDetails?.status == 3" class="mb-1 me-2 badge font-medium bg-light-warning text-warning">Processing</span>
+<!-- <p>withdraw-detail works!</p>
+<span *ngIf="withdrawDetails?.status == 1"
+  class="mb-1 me-2 badge font-medium bg-light-success text-success">Verify</span>
+<span *ngIf="withdrawDetails?.status == 2"
+  class="mb-1 me-2 badge font-medium bg-light-danger text-danger">Decline</span>
+<span *ngIf="withdrawDetails?.status == 0"
+  class="mb-1 me-2 badge font-medium bg-light-warning text-warning">Pending</span>
+<span *ngIf="withdrawDetails?.status == 3"
+  class="mb-1 me-2 badge font-medium bg-light-warning text-warning">Processing</span>
 
 
 <button class="dropdown-item" (click)="statusChange(1)">
@@ -16,4 +20,112 @@
 </button>
 <button class="dropdown-item" (click)="statusChange(3)">
   Processing
-</button>
+</button> -->
+<div class="row">
+  <div class="col-12">
+    <div class="card">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">User Detail</h4>
+          <div class="table-responsive">
+            <table class="table table-hover align-middle text-nowrap table-bordered">
+              <tbody>
+                <tr>
+                  <td>Full Name : </td>
+                  <td>{{ UserDetails?.full_name }}</td>
+                </tr>
+                <tr>
+                  <td>Mobile No. : </td>
+                  <td>{{ UserDetails?.mobile_no }}</td>
+                </tr>
+                <tr>
+                  <td>Ludo Name : </td>
+                  <td>{{ UserDetails?.ludo_name }}</td>
+                </tr>
+                <tr>
+                  <td>Wallet Amount : </td>
+                  <td style="color: red;">Rs. {{ UserDetails?.amount }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="row">
+  <div class="col-12">
+    <div class="card">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">Withdraw Detail</h4>
+          <div class="table-responsive">
+            <table class="table table-hover align-middle text-nowrap table-bordered">
+              <tbody>
+                <tr>
+                  <td>Email : </td>
+                  <td>{{ withdrawDetails?.email }}</td>
+                </tr>
+                <tr>
+                  <td>Mobile No. : </td>
+                  <td>{{ withdrawDetails?.mobile_no }}</td>
+                </tr>
+                <tr>
+                  <td>Bank Name : </td>
+                  <td>{{ withdrawDetails?.bank_name }}</td>
+                </tr>
+                <tr>
+                  <td>Branch Name : </td>
+                  <td>{{ withdrawDetails?.branch }}</td>
+                </tr>
+                <tr>
+                  <td>Account Number : </td>
+                  <td>{{ withdrawDetails?.account_no}}</td>
+                </tr>
+                <tr>
+                  <td>IFSC Code: </td>
+                  <td>{{ withdrawDetails?.ifsc }}</td>
+                </tr>
+                <tr>
+                  <td>UPI ID : </td>
+                  <td>{{ withdrawDetails?.upi }}</td>
+                </tr>
+                <tr>
+                  <td>Amount : </td>
+                  <td style="color: red;">Rs. {{ withdrawDetails?.amount }}</td>
+                </tr>
+                <tr>
+                  <td>Status : </td>
+                  <td>
+                    <span *ngIf="withdrawDetails?.status == 1"
+                      class="mb-1 me-2 badge font-medium bg-light-success text-success">Approved</span>
+                    <span *ngIf="withdrawDetails?.status == 2"
+                      class="mb-1 me-2 badge font-medium bg-light-danger text-danger">Rejected</span>
+                    <span *ngIf="withdrawDetails?.status == 0"
+                      class="mb-1 me-2 badge font-medium bg-light-warning text-warning">Pending</span>
+                    <span *ngIf="withdrawDetails?.status == 3"
+                      class="mb-1 me-2 badge font-medium bg-light-warning text-warning">Processing</span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="d-inline-block" ngbDropdown>
+              <button class="btn btn-secondary d-flex align-items-center" id="dropdown1" ngbDropdownToggle>
+                Status Change
+              </button>
+              <div ngbDropdownMenu aria-labelledby="dropdown1">
+                <button class="dropdown-item" (click)="statusChange(1)">Approved</button>
+                <button class="dropdown-item" (click)="statusChange(2)">Rejected</button>
+                <!-- <button class="dropdown-item" (click)="statusChange(0)">Pending</button> -->
+                <!-- <button class="dropdown-item" (click)="statusChange(3)">Processing</button> -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
