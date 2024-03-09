@@ -27,9 +27,8 @@ export class GameHistoryComponent implements OnInit {
     this.gameHistory = [];
     this.generalService.getGameHistory().subscribe((response) => {
       if(response?.status == SUCCESS) {
-        this.gameHistory = response?.payload?.data;
-        console.log(this.gameHistory ,'sdd')
-      } else {
+        this.gameHistory = response?.payload?.data?.reverse();
+        } else {
         this.notificationService.showError('Something went wrong');
       }
     },(error) => {

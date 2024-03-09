@@ -1,0 +1,19 @@
+<p>withdraw-detail works!</p>
+<span *ngIf="withdrawDetails?.status == 1" class="mb-1 me-2 badge font-medium bg-light-success text-success">Verify</span>
+                            <span *ngIf="withdrawDetails?.status == 2" class="mb-1 me-2 badge font-medium bg-light-danger text-danger">Decline</span>
+                            <span *ngIf="withdrawDetails?.status == 0" class="mb-1 me-2 badge font-medium bg-light-warning text-warning">Pending</span>
+                            <span *ngIf="withdrawDetails?.status == 3" class="mb-1 me-2 badge font-medium bg-light-warning text-warning">Processing</span>
+
+
+<button class="dropdown-item" (click)="statusChange(1)">
+  Verify
+</button>
+<button class="dropdown-item" (click)="statusChange(2)">
+  Decline
+</button>
+<button class="dropdown-item" (click)="statusChange(0)">
+  Pending
+</button>
+<button class="dropdown-item" (click)="statusChange(3)">
+  Processing
+</button>

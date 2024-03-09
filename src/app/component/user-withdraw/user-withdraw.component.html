@@ -35,11 +35,12 @@
                             <span *ngIf="item?.status == 1" class="mb-1 me-2 badge font-medium bg-light-success text-success">Verify</span>
                             <span *ngIf="item?.status == 2" class="mb-1 me-2 badge font-medium bg-light-danger text-danger">Decline</span>
                             <span *ngIf="item?.status == 0" class="mb-1 me-2 badge font-medium bg-light-warning text-warning">Pending</span>
+                            <span *ngIf="item?.status == 3" class="mb-1 me-2 badge font-medium bg-light-warning text-warning">Processing</span>
                         </td>
                         <td>
                            {{item?.created_on | date: 'dd/MM/yyyy' }}
                          </td>
-                          <td>
+                          <!-- <td>
                             <div class="d-inline-block" ngbDropdown>
                               <button class="btn btn-secondary d-flex align-items-center" id="dropdown1" ngbDropdownToggle>
                                 Status Change
@@ -48,8 +49,13 @@
                                 <button class="dropdown-item" (click)="statusChange(item?.id, 1)">Verify</button>
                                 <button class="dropdown-item" (click)="statusChange(item?.id, 2)">Decline</button>
                                 <button class="dropdown-item" (click)="statusChange(item?.id, 0)">Pending</button>
+                                <button class="dropdown-item" (click)="statusChange(item?.id, 3)">Processing</button>
                               </div>
                             </div>
+                        </td> -->
+
+                        <td>
+                          <button class="btn btn-secondary d-flex align-items-center" (click)="showDetails(item?.id)">View</button>
                         </td>
                       </tr>
                   </tbody>

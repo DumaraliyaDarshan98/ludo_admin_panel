@@ -38,7 +38,7 @@ import { APIInterceptor } from './Interceptor/ApiInterceptor';
       positionClass: 'toast-bottom-right',
       preventDuplicates: false,
     }),
-    RouterModule.forRoot(Approutes, { useHash: false }),
+    RouterModule.forRoot(Approutes, { useHash: true }),
     FullComponent,
     NavigationComponent,
     SidebarComponent,

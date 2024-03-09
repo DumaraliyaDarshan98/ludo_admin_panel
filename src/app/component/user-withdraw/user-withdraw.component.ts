@@ -4,6 +4,7 @@ import { NgbCollapseModule, NgbDropdownModule, NgbModule } from '@ng-bootstrap/n
 import { GeneralService } from 'src/app/services/general-services/general.service';
 import { NotificationService } from 'src/app/services/notification/notification.service';
 import { SUCCESS } from 'src/app/constant/response-status.const';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-withdraw',
@@ -21,7 +22,8 @@ export class UserWithdrawComponent implements OnInit {
 
   constructor(
     private generalService: GeneralService,
-    private notificationService: NotificationService
+    private notificationService: NotificationService,
+    private router : Router
   ) { }
 
   ngOnInit(): void {
@@ -44,18 +46,8 @@ export class UserWithdrawComponent implements OnInit {
     });
   }
 
-  // user status change
-  statusChange(userId: number, status: number) {
-    console.log('status change', status);
-    this.generalService.changeWithdrawStatus({ id: userId, status: status }).subscribe((response) => {
-      if (response?.status == SUCCESS) {
-        this.getWithdrawList();
-        this.notificationService.showSuccess(response?.message || 'User Status Updated');
-      } else {
-        this.notificationService.showError('Error');
-      }
-    }, (error) => {
-      this.notificationService.showError(error?.message || 'Something Went Wrong');
-    });
+  showDetails(id: any) {
+    // this.router.navigateByUrl(`/component/game-detail/${battleId}`)
+    this.router.navigate(['/component/withdraw-detail', id]);
   }
 }

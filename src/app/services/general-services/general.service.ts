@@ -9,6 +9,7 @@ export enum APIEndPoint {
   USER_LIST = "/admin/user-list",
   USER_WALLET_LIST = "/admin//user-wallet-list",
   USER_WITHDRAW_LIST = "/admin/user-withdraw-list",
+  USER_WITHDRAW_DETAILS = "/user/withdraw-details",
   CHANGE_WALLET_STATUS = "/admin/wallet-action",
   CHANGE_WITHDRAW_STATUS = "/admin/withdraw-action",
   CHANGE_USER_STATUS = "/admin/user-status-change",
@@ -73,6 +74,13 @@ export class GeneralService {
   changeWithdrawStatus(payload: any): Observable<any> {
     return this.httpClient
       .post<any>(this.baseUrl + APIEndPoint.CHANGE_WITHDRAW_STATUS, payload);
+  }
+
+  // get withdraw details by id
+  getWithDrawDetails(id: any): Observable<any> {
+    const url = APIEndPoint.USER_WITHDRAW_DETAILS + '/' + String(id);
+    return this.httpClient
+      .get<any>(this.baseUrl + url);
   }
 
   // change user status

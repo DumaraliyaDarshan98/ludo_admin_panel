@@ -10,6 +10,7 @@ import { NotificationComponent } from './notification/notification.component';
 import { NotificationAddeditComponent } from './notification-addedit/notification-addedit.component';
 import { PageNotificationComponent } from './page-notification/page-notification.component';
 import { AddEditPageNotificationComponent } from './add-edit-page-notification/add-edit-page-notification.component';
+import { WithdrawDetailComponent } from './withdraw-detail/withdraw-detail.component';
 
 
 export const ComponentsRoutes: Routes = [
@@ -59,6 +60,10 @@ export const ComponentsRoutes: Routes = [
 			{
 				path: 'game-detail/:id',
 				component: GameDetailsComponent
+			},
+      {
+				path: 'withdraw-detail/:id',
+				component: WithdrawDetailComponent
 			},
 		]
 	}

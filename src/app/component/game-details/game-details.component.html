@@ -13,15 +13,15 @@
                                 </tr>
                                 <tr>
                                     <td>Game Amount : </td>
-                                    <td>{{ gameDetails?.amount }}</td>
+                                    <td>RS. {{ gameDetails?.amount }}</td>
                                 </tr>
                                 <tr>
                                     <td>Winner Amount : </td>
-                                    <td>{{ gameDetails?.winner_amount }}</td>
+                                    <td>RS. {{ gameDetails?.winner_amount }}</td>
                                 </tr>
                                 <tr>
                                     <td>Admin Commission : </td>
-                                    <td>{{ gameDetails?.admin_commission }}</td>
+                                    <td>RS. {{ gameDetails?.admin_commission }}</td>
                                 </tr>
                                 <tr>
                                     <td>Game Created By : </td>
@@ -117,10 +117,10 @@
                                             <tr
                                                 *ngIf="gameDetails?.gamePlayer[0]?.p_status == 6">
                                                 <td colspan="2" style="text-align: center;">
-                                                    <span>
+                                                    <a [href]="'https://mega-ludo.info/uploads/' + gameDetails?.gamePlayer[0]?.image" target="_blank">
                                                         <img [src]="'https://mega-ludo.info/uploads/' + gameDetails?.gamePlayer[0]?.image"
                                                             alt="" height="200px" width="200px">
-                                                    </span>
+                                                    </a>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -176,10 +176,10 @@
                                             <tr
                                                 *ngIf="gameDetails?.gamePlayer[1]?.p_status == 6">
                                                 <td colspan="2" style="text-align: center;">
-                                                    <span>
+                                                    <a  [href]="'https://mega-ludo.info/uploads/' + gameDetails?.gamePlayer[1]?.image" target="_blank">
                                                         <img [src]="'https://mega-ludo.info/uploads/' + gameDetails?.gamePlayer[1]?.image"
                                                             alt="" height="200px" width="200px">
-                                                    </span>
+                                                    </a>
                                                 </td>
                                             </tr>
                                         </tbody>
