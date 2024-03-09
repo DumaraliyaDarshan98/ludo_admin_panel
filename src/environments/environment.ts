@@ -4,9 +4,9 @@
 
 export const environment = {
   production: false,
-  //baseUrl: "http://localhost:4100",
-   baseUrl : 'http://192.168.1.7:4100',
-  // baseUrl : 'https://mega-ludo.info',
+  // baseUrl: "http://localhost:4100",
+  //  baseUrl : 'http://192.168.1.7:4100',
+  baseUrl : 'https://mega-ludo.info',
   // https://www.youtube.com/watch?v=G68JRjuLjGs&ab_channel=CodeWithCode
 };
 
