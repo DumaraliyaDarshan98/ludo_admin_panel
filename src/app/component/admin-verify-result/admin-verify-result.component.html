@@ -1,0 +1,57 @@
+<div class="row">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-header">Admin Verify Result</div>
+        <div class="card-body">
+          <!-- Player Result Details -->
+          <div class="row mb-3" >
+            <div class="col-6">
+              <h3>Player 1:  <b> {{gameDetails?.gamePlayer[0]?.p_name}} </b></h3>
+              <!-- <span class="mb-1 me-2 badge font-medium bg-light-success text-success text-center"> won the game ! </span> -->
+              <span *ngIf="gameDetails?.gamePlayer[0]?.p_status == 6" class="mb-1 me-2 badge font-medium bg-light-success text-success text-center"> won the game ! </span>
+
+              <span *ngIf="gameDetails?.gamePlayer[0]?.p_status == 7" class="mb-1 me-2 badge font-medium bg-light-danger text-danger text-center"> loose the game ! </span>
+
+              <span *ngIf="gameDetails?.gamePlayer[0]?.p_status == 5" class="mb-1 me-2 badge font-medium bg-light-danger text-danger text-center">Cancel Game !</span>
+
+              <span *ngIf="gameDetails?.gamePlayer[0]?.p_status != 7 && gameDetails?.gamePlayer[0]?.p_status != 6 && gameDetails?.gamePlayer[0]?.p_status != 5" class="mb-1 me-2 badge font-medium bg-light-danger text-danger text-center">Pending </span>
+            </div>
+            <div class="col-6">
+              <h3>Player 2: <b> {{gameDetails?.gamePlayer[1]?.p_name}} </b> </h3>
+              <!-- <span class="mb-1 me-2 badge font-medium bg-light-success text-success text-center"> won the game ! </span> -->
+              <span *ngIf="gameDetails?.gamePlayer[0]?.p_status == 6" class="mb-1 me-2 badge font-medium bg-light-success text-success text-center"> won the game ! </span>
+
+              <span *ngIf="gameDetails?.gamePlayer[0]?.p_status == 7" class="mb-1 me-2 badge font-medium bg-light-danger text-danger text-center"> loose the game ! </span>
+
+              <span *ngIf="gameDetails?.gamePlayer[0]?.p_status == 5" class="mb-1 me-2 badge font-medium bg-light-danger text-danger text-center">Cancel Game !</span>
+
+              <span *ngIf="gameDetails?.gamePlayer[0]?.p_status != 7 && gameDetails?.gamePlayer[0]?.p_status != 6 && gameDetails?.gamePlayer[0]?.p_status != 5" class="mb-1 me-2 badge font-medium bg-light-danger text-danger text-center">Pending </span>
+            </div>
+          </div>
+
+          <div class="row mb-3">
+            <div class="col-12">
+              <div class="form-group mb-3">
+                <label for="result1">Select Result For Player 1:  <b> {{gameDetails?.gamePlayer[0]?.p_name}} </b></label>
+                <select name="" id="result1" [formControl]="player1" class="form-control">
+                  <option value="6">Won Game</option>
+                  <option value="7">Loose Game</option>
+                </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="result2">Select Result For Player 2:  <b> {{gameDetails?.gamePlayer[1]?.p_name}} </b></label>
+                <select name="" id="result2" [formControl]="player2" class="form-control">
+                  <option value="6">Won Game</option>
+                  <option value="7">Loose Game</option>
+                </select>
+                </div>
+            </div>
+          </div>
+        </div>
+        <div class="d-flex justify-content-between" *ngIf="gameDetails?.gamePlayer?.length > 0">
+          <button class="btn btn-danger d-flex align-items-center m-1" type="button" (click)="close()">Cancel</button>
+          <button class="btn btn-secondary d-flex align-items-center m-1" type="button" (click)="submit()">Submit</button>
+      </div>
+    </div>
+</div>

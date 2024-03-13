@@ -28,7 +28,8 @@ export enum APIEndPoint {
   DELETE_NOTIFICATION_LIST = "/notification/delete",
   PAGE_NOTIFICATION_LIST = "/page-notification/list",
   PAGE_ADD_EDIT_NOTIFICATION_LIST = "/page-notification/add-edit",
-  PAGE_DELETE_NOTIFICATION_LIST = "/page-notification/delete"
+  PAGE_DELETE_NOTIFICATION_LIST = "/page-notification/delete",
+  UPDATE_GAME_RESULT = ""
 }
 
 @Injectable({

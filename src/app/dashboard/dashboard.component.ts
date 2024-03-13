@@ -58,6 +58,7 @@ export class DashboardComponent implements AfterViewInit, OnInit {
     this.generalService.addEditCommission(payload).subscribe((response) => {
       if (response?.status == SUCCESS) {
         this.getAdminCommission();
+        this.notificationService.showSuccess('Admin Commission SuccessFully Updated');
       } else {
         this.notificationService.showError('Error');
       }
@@ -95,6 +96,7 @@ export class DashboardComponent implements AfterViewInit, OnInit {
     this.generalService.addEditReferCommission(payload).subscribe((response) => {
       if (response?.status == SUCCESS) {
         this.getReferCommission();
+        this.notificationService.showSuccess('Refer Commission SuccessFully Updated');
       } else {
         this.notificationService.showError('Error');
       }

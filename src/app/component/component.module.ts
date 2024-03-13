@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ComponentsRoutes } from './component.routing';
@@ -14,6 +14,7 @@ import { NotificationAddeditComponent } from './notification-addedit/notificatio
 import { PageNotificationComponent } from './page-notification/page-notification.component';
 import { AddEditPageNotificationComponent } from './add-edit-page-notification/add-edit-page-notification.component';
 import { WithdrawDetailComponent } from './withdraw-detail/withdraw-detail.component';
+import { AdminVerifyResultComponent } from './admin-verify-result/admin-verify-result.component';
 
 @NgModule({
   imports: [
@@ -22,7 +23,8 @@ import { WithdrawDetailComponent } from './withdraw-detail/withdraw-detail.compo
     FormsModule,
     ReactiveFormsModule,
     NgbModule,
-    TableComponent
+    TableComponent,
+    DatePipe
   ],
   declarations: [
     ContactUsComponent,
@@ -34,6 +36,7 @@ import { WithdrawDetailComponent } from './withdraw-detail/withdraw-detail.compo
     PageNotificationComponent,
     AddEditPageNotificationComponent,
     WithdrawDetailComponent,
+    AdminVerifyResultComponent,
   ],
 })
 export class ComponentsModule { }
