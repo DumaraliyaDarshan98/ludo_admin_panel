@@ -71,7 +71,7 @@ export class DashboardComponent implements AfterViewInit, OnInit {
   getReferCommission() {
     this.generalService.getReferCommissionDetails().subscribe((response) => {
       if (response?.status == SUCCESS) {
-        this.referCommissionDetails = response?.payload?.data?.commissionDetails;
+        this.referCommissionDetails = response?.payload?.data;
         this.refer_commission.setValue(this.referCommissionDetails?.commission || '');
       }
     }, (error) => {
