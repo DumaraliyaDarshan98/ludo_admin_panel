@@ -61,7 +61,8 @@ export class GameDetailsComponent implements OnInit {
     modalRef.componentInstance.gameDetails = this.gameDetails;
 
     modalRef.result.then((result) => {
-      console.log('openResultComponent', result)
+      console.log('openResultComponent', result);
+      this.getHistoryDetails();
     });
   }
 }

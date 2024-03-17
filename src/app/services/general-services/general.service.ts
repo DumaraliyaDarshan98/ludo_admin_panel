@@ -29,7 +29,7 @@ export enum APIEndPoint {
   PAGE_NOTIFICATION_LIST = "/page-notification/list",
   PAGE_ADD_EDIT_NOTIFICATION_LIST = "/page-notification/add-edit",
   PAGE_DELETE_NOTIFICATION_LIST = "/page-notification/delete",
-  UPDATE_GAME_RESULT = ""
+  UPDATE_GAME_RESULT = "/admin/verify-result"
 }
 
 @Injectable({
@@ -181,5 +181,11 @@ export class GeneralService {
     const url = APIEndPoint.PAGE_DELETE_NOTIFICATION_LIST + '/' + String(id);
     return this.httpClient
       .delete<any>(this.baseUrl + url);
+  }
+
+  // add edit notification
+  verifyGameResult(payload: any): Observable<any> {
+    return this.httpClient
+      .post<any>(this.baseUrl + APIEndPoint.UPDATE_GAME_RESULT, payload);
   }
 }
